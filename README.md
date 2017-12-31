@@ -1,5 +1,9 @@
 # cryptocompare-crystal
 
+[![Travis CI Build Status](https://travis-ci.org/mattboldt/cryptocompare-crystal.svg)](https://travis-ci.org/mattboldt/cryptocompare-crystal)
+[![GitHub release](https://img.shields.io/github/release/mattboldt/cryptocompare-crystal.svg)]()
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mattboldt/typed.js/master/LICENSE.txt)
+
 This is a Crystal Shard that utilizes the CryptoCompare API to fetch data related to cryptocurrencies.
 
 Port of [Ruby Cryptocompare](https://github.com/alexanderdavidpan/cryptocompare)
