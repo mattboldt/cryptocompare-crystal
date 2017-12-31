@@ -20,15 +20,17 @@ module Cryptocompare
     }
 
     # Appends query parameters to path
-    def self.set_query_params(path, opts)
-      path + "?#{to_query(opts)}"
+    def self.set_query_params(path, params, opts)
+      path + "?#{to_query(params, opts)}"
     end
 
     # Helper method to parse parameters and build query parameters
-    def self.to_query(opts)
-      opts.map do |k, v|
-        "#{QUERY_PARAM_MAPPING[k]}=#{v}"
-      end.sort.join("&")
+    def self.to_query(params, opts)
+      [params, opts].map do |hash|
+        hash.map do |k, v|
+          "#{QUERY_PARAM_MAPPING[k.to_s]}=#{v.to_s}"
+        end.join("&")
+      end.join("&")
     end
 
     def self.build_params(from_syms, to_syms, e = nil)
