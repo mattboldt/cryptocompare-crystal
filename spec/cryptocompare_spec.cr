@@ -1,9 +1,11 @@
 require "./spec_helper"
 
 describe Cryptocompare do
-  # TODO: Write tests
+  it "should that_it_has_a_version_number" do
+    ::Cryptocompare::VERSION.should_not eq(nil)
+  end
 
-  it "works" do
-    false.should eq(true)
+  it "should exists" do
+    Cryptocompare.should_not eq(nil)
   end
 end
