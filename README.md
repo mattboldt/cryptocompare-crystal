@@ -1,4 +1,4 @@
-# cryptocompare
+# cryptocompare-crystal
 
 This is a Crystal Shard that utilizes the CryptoCompare API to fetch data related to cryptocurrencies. Port of [Ruby Cryptocompare](https://github.com/alexanderdavidpan/cryptocompare)
 
