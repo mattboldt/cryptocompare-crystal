@@ -1,6 +1,8 @@
 # cryptocompare-crystal
 
-This is a Crystal Shard that utilizes the CryptoCompare API to fetch data related to cryptocurrencies. Port of [Ruby Cryptocompare](https://github.com/alexanderdavidpan/cryptocompare)
+This is a Crystal Shard that utilizes the CryptoCompare API to fetch data related to cryptocurrencies.
+
+Port of [Ruby Cryptocompare](https://github.com/alexanderdavidpan/cryptocompare)
 
 ## Installation
 
@@ -20,7 +22,7 @@ require "cryptocompare"
 
 ### Price
 
-Finds the currency price(s) of a given currency symbol. Really fast, 20-60 ms. Cached each 10 seconds.
+Finds the currency price(s) of a given currency symbol.
 
 **Examples:**
 
@@ -225,7 +227,7 @@ Get general info for all the coins available on Cryptocompare's API.
 Cryptocompare::CoinList.all
 # => {
 #     "Response" => "Success",
-#     "Message" => "Coin list succesfully returned!",
+#     "Message" => "Coin list successfully returned!",
 #     "BaseImageUrl" => "https://www.cryptocompare.com",
 #     "BaseLinkUrl" => "https://www.cryptocompare.com",
 #     "DefaultWatchlist" => {
@@ -283,7 +285,7 @@ Get data for a currency pair. It returns general block explorer information, agg
 Cryptocompare::CoinSnapshot.find('BTC', 'USD')
 # => {
 #     "Response":"Success",
-#     "Message":"Coin snapshot succesfully returned",
+#     "Message":"Coin snapshot successfully returned",
 #     "Type":100,
 #     "Data":{
 #       "Algorithm":"SHA256",
@@ -502,88 +504,23 @@ Cryptocompare::HistoDay.find('BTC', 'USD')
 ```
 
 ## Supported Exchanges
-
-* ANXBTC
-* Binance
-* Bit2C
-* BitBay
-* BitcoinDE
-* Bitfinex
-* bitFlyer
-* bitFlyerFX
-* Bithumb
-* BitMarket
-* Bitso
-* BitSquare
-* Bitstamp
-* Bittrex
-* Bleutrade
-* BTC38
-* BTCChina
-* BTCE
-* BTCMarkets
-* btcXchange
-* BTCXIndia
-* BTER
-* CCEDK
-* CCEX
-* Cexio
-* CHBTC
-* Coinbase
-* CoinCheck
-* CoinExchange
-* Coinfloor
-* Coinone
-* Coinroom
-* Coinse
-* Coinsetter
-* Cryptopia
-* CryptoX
-* Cryptsy
-* EtherDelta
-* EthexIndia
-* Exmo
-* Gatecoin
-* Gemini
-* HitBTC
-* Huobi
-* itBit
-* Jubi
-* Korbit
-* Kraken
-* LakeBTC
-* Liqui
-* LiveCoin
-* LocalBitcoins
-* Luno
-* Lykke
-* MercadoBitcoin
-* MonetaGo
-* MtGox
-* Novaexchange
-* OKCoin
-* Paymium
-* Poloniex
-* QuadrigaCX
-* Quoine
-* Remitano
-* TheRockTrading
-* Tidex
-* TuxExchange
-* Unocoin
-* Vaultoro
-* ViaBTC
-* WavesDEX
-* Yacuna
-* Yobit
-* Yunbi
-* Zaif
+ANXBTC, Binance, Bit2C, BitBay, BitcoinDE, Bitfinex, bitFlyer, bitFlyerFX, Bithumb, BitMarket, Bitso, BitSquare, Bitstamp, Bittrex, Bleutrade, BTC38, BTCChina, BTCE, BTCMarkets, btcXchange, BTCXIndia, BTER, CCEDK, CCEX, Cexio, CHBTC, Coinbase, CoinCheck, CoinExchange, Coinfloor, Coinone, Coinroom, Coinse, Coinsetter, Cryptopia, CryptoX, Cryptsy, EtherDelta, EthexIndia, Exmo, Gatecoin, Gemini, HitBTC, Huobi, itBit, Jubi, Korbit, Kraken, LakeBTC, Liqui, LiveCoin, LocalBitcoins, Luno, Lykke, MercadoBitcoin, MonetaGo, MtGox, Novaexchange, OKCoin, Paymium, Poloniex, QuadrigaCX, Quoine, Remitano, TheRockTrading, Tidex, TuxExchange, Unocoin, Vaultoro, ViaBTC, WavesDEX, Yacuna, Yobit, Yunbi, Zaif
 
 If no exchange option is specified, then the default 'CCCAGG' is used. This is cryptocompare's aggregated data.
 
 ## Development
 
-TBD
+#### Clone
+```
+git clone git@github.com:mattboldt/cryptocompare-crystal.git
+cd cryptocompare-crystal
+crystal deps
+```
+
+#### Run tests
+```
+crystal spec
+```
 
 ## Contributing
 
@@ -592,4 +529,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/mattbo
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The shard is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

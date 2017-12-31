@@ -28,7 +28,7 @@ module Cryptocompare
     #
     #   {
     #     "Response" => "Success",
-    #     "Message" => "Coin snapshot succesfully returned",
+    #     "Message" => "Coin snapshot successfully returned",
     #     "Type" => 100,
     #     "Data" => {
     #       "Algorithm" => "SHA256",

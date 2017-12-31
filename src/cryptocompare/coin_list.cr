@@ -22,7 +22,7 @@ module Cryptocompare
     #
     #   {
     #     "Response" => "Success",
-    #     "Message" => "Coin list succesfully returned!",
+    #     "Message" => "Coin list successfully returned!",
     #     "BaseImageUrl" => "https://www.cryptocompare.com",
     #     "BaseLinkUrl" => "https://www.cryptocompare.com",
     #     "DefaultWatchlist" => {
