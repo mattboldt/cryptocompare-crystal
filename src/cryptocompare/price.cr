@@ -62,8 +62,8 @@ module Cryptocompare
     #   Cryptocompare::Price.find("DASH", "USD", {"e" => "Kraken"})
     #   #=> {"DASH"=>{"USD"=>152.4}}
     def self.find(from_syms, to_syms, opts = {} of String => String)
-      params = Cryptocompare::QueryParamHelper.build_params(from_syms, to_syms).merge(opts)
-      full_path = Cryptocompare::QueryParamHelper.set_query_params(PRICE_API_URL, params)
+      params = QueryParamHelper.build_params(from_syms, to_syms)
+      full_path = QueryParamHelper.set_query_params(PRICE_API_URL, params, opts)
 
       api_resp = HTTP::Client.get(full_path)
       JSON.parse(api_resp.body)
@@ -153,9 +153,8 @@ module Cryptocompare
     #     }
     #   }
     def self.full(from_syms, to_syms, opts = {} of String => String)
-      params = Cryptocompare::QueryParamHelper.build_params(from_syms, to_syms)#.merge(opts)
-
-      full_path = Cryptocompare::QueryParamHelper.set_query_params(PRICE_FULL_API_URL, params)
+      params = QueryParamHelper.build_params(from_syms, to_syms)
+      full_path = QueryParamHelper.set_query_params(PRICE_FULL_API_URL, params, opts)
 
       api_resp = HTTP::Client.get(full_path)
       JSON.parse(api_resp.body)
@@ -232,11 +231,11 @@ module Cryptocompare
     def self.generate_avg(from_sym, to_sym, e, opts = {} of String => String)
       e_str = e.is_a?(String) ? e : e.join(",")
       params = {
-        "from_sym": from_sym,
-        "to_sym":   to_sym,
-        "e":        e_str
-      }#.merge(opts)
-      full_path = Cryptocompare::QueryParamHelper.set_query_params(GENERATE_AVG_API_URL, params)
+        from_sym: from_sym,
+        to_sym:   to_sym,
+        e:        e_str
+      }
+      full_path = QueryParamHelper.set_query_params(GENERATE_AVG_API_URL, params, opts)
 
       api_resp = HTTP::Client.get(full_path)
       JSON.parse(api_resp.body)
@@ -287,10 +286,10 @@ module Cryptocompare
     #   }
     def self.day_avg(from_sym, to_sym, opts = {} of String => String)
       params = {
-        "from_sym": from_sym,
-        "to_sym":   to_sym,
-      }#.merge(opts)
-      full_path = Cryptocompare::QueryParamHelper.set_query_params(DAY_AVG_API_URL, params)
+        from_sym: from_sym,
+        to_sym:   to_sym,
+      }
+      full_path = QueryParamHelper.set_query_params(DAY_AVG_API_URL, params, opts)
 
       api_resp = HTTP::Client.get(full_path)
       JSON.parse(api_resp.body)

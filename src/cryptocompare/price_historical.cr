@@ -44,8 +44,8 @@ module Cryptocompare
     #   Cryptocompare::PriceHistorical.find("ETH", ["BTC", "USD", "EUR"], {"ts" => "1452680400"})
     #   #=> {"ETH"=>{"BTC"=>0.08006, "USD"=>225.93, "EUR"=>194.24}}
     def self.find(from_sym, to_syms, opts = {} of String => String)
-      params = Cryptocompare::QueryParamHelper.build_find_params(from_sym, to_syms).merge(opts)
-      full_path = Cryptocompare::QueryParamHelper.set_query_params(API_URL, params)
+      params = QueryParamHelper.build_find_params(from_sym, to_syms)
+      full_path = QueryParamHelper.set_query_params(API_URL, params, opts)
 
       api_resp = HTTP::Client.get(full_path)
       JSON.parse(api_resp.body)

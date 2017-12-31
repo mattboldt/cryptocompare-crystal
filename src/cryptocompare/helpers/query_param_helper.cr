@@ -20,7 +20,7 @@ module Cryptocompare
     }
 
     # Appends query parameters to path
-    def self.set_query_params(path, params, opts)
+    def self.set_query_params(path, params, opts = {} of String => String)
       path + "?#{to_query(params, opts)}"
     end
 
@@ -33,26 +33,20 @@ module Cryptocompare
       end.join("&")
     end
 
-    def self.build_params(from_syms, to_syms, e = nil)
+    def self.build_params(from_syms, to_syms)
       from_str = from_syms.is_a?(String) ? from_syms : from_syms.join(",")
       to_str = to_syms.is_a?(String) ? to_syms : to_syms.join(",")
-      hash = {
-        "from_syms": from_str,
-        "to_syms":   to_str
+      {
+        from_syms: from_str,
+        to_syms:   to_str
       }
-
-      unless e.nil?
-        e_str = e.is_a?(String) ? e : e.join(",")
-        hash["e"] = e_str
-      end
-      hash
     end
 
     def self.build_find_params(from_sym, to_syms)
       to_str = to_syms.is_a?(String) ? to_syms : to_syms.join(",")
       {
-        "from_sym": from_sym,
-        "to_syms":  to_str
+        from_sym: from_sym,
+        to_syms:  to_str
       }
     end
   end

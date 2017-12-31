@@ -70,11 +70,11 @@ module Cryptocompare
     #   }
     def self.find(from_sym, to_sym, opts = {} of String => String)
       params = {
-        "from_sym" => from_sym,
-        "to_sym"   => to_sym
-      }.merge(opts)
+        from_sym: from_sym,
+        to_sym:   to_sym
+      }
 
-      full_path = Cryptocompare::QueryParamHelper.set_query_params(API_URL, params)
+      full_path = QueryParamHelper.set_query_params(API_URL, params, opts)
       api_resp = HTTP::Client.get(full_path)
       JSON.parse(api_resp.body)
     end
