@@ -1,23 +1,9 @@
-# require 'yaml'
+require "yaml"
 
 # Helper module for setting query params.
 module Cryptocompare
   module QueryParamHelper
-    QUERY_PARAM_MAPPING = {
-      "agg": "aggregate",
-      "all_data": "allData",
-      "e": "e",
-      "from_sym": "fsym",
-      "from_syms": "fsyms",
-      "limit": "limit",
-      "markets": "markets",
-      "tc": "tryConversion",
-      "to_sym": "tsym",
-      "to_syms": "tsyms",
-      "to_ts": "toTs",
-      "ts": "ts",
-      "utc_offset": "UTCHourDiff"
-    }
+    QUERY_PARAM_MAPPING = YAML.parse(File.read(File.join(__DIR__, "../../../config/query_param_mapping.yml")))
 
     # Appends query parameters to path
     def self.set_query_params(path, params, opts = {} of String => String)
