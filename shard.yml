@@ -1,0 +1,14 @@
+name: cryptocompare
+version: 0.1.0
+
+authors:
+  - Matt Boldt <me@mattboldt.com>
+
+crystal: 0.24.1
+
+license: MIT
+
+dependencies:
+  icr:
+    github: crystal-community/icr
+    branch: master
