@@ -33,55 +33,55 @@ Finds the currency price(s) of a given currency symbol.
 Convert cryptocurrency to fiat.
 
 ```crystal
-Cryptocompare::Price.find('BTC', 'USD')
+Cryptocompare::Price.find("BTC", "USD")
 # => {"BTC"=>{"USD"=>2594.07}}
 ```
 
 Convert fiat to cryptocurrency.
 
 ```crystal
-Cryptocompare::Price.find('USD', 'BTC')
+Cryptocompare::Price.find("USD", "BTC")
 # => {"USD"=>{"BTC"=>0.0004176}}
 ```
 
 Convert cryptocurrency to cryptocurrency.
 
 ```crystal
-Cryptocompare::Price.find('BTC', 'ETH')
+Cryptocompare::Price.find("BTC", "ETH")
 # => {"BTC"=>{"ETH"=>9.29}}
 ```
 
 Convert fiat to fiat.
 
 ```crystal
-Cryptocompare::Price.find('USD', 'EUR')
+Cryptocompare::Price.find("USD", "EUR")
 # => {"USD"=>{"EUR"=>0.8772}}
 ```
 
 Convert multiple cryptocurrencies to multiple fiat.
 
 ```crystal
-Cryptocompare::Price.find(['BTC','ETH', 'LTC'], ['USD', 'EUR', 'CNY'])
+Cryptocompare::Price.find(["BTC","ETH", "LTC"], ["USD", "EUR", "CNY"])
 # => {"BTC"=>{"USD"=>2501.61, "EUR"=>2197.04, "CNY"=>17329.48}, "ETH"=>{"USD"=>236.59, "EUR"=>209.39, "CNY"=>1655.15}, "LTC"=>{"USD"=>45.74, "EUR"=>40.33, "CNY"=>310.5}}
 ```
 
 Convert multiple fiat to multiple cryptocurrencies.
 
 ```crystal
-Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
+Cryptocompare::Price.find(["USD", "EUR"], ["BTC","ETH", "LTC"])
 # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
 ```
 
 Convert prices based on exchange.
 
 ```crystal
-Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
+Cryptocompare::Price.find("DASH", "USD", {"e" => "Kraken"})
 # => {"DASH"=>{"USD"=>152.4}}
 ```
 
 Get full price info (raw and display) for cryptocurrency to fiat currency.
 ```crystal
-Cryptocompare::Price.full('BTC', 'USD')
+Cryptocompare::Price.full("BTC", "USD")
 # => {
 #   "RAW" => {
 #     "BTC" => {
@@ -139,7 +139,7 @@ Cryptocompare::Price.full('BTC', 'USD')
 Generate average price for cryptocurrency to fiat currency.
 
 ```crystal
-Cryptocompare::Price.generate_avg('BTC', 'USD', ['Coinbase', 'Bitfinex'])
+Cryptocompare::Price.generate_avg("BTC", "USD", ["Coinbase", "Bitfinex"])
 # => {
 #   "RAW" => {
 #     "MARKET" => "CUSTOMAGG",
@@ -184,7 +184,7 @@ Cryptocompare::Price.generate_avg('BTC', 'USD', ['Coinbase', 'Bitfinex'])
 Get day average price.
 
 ```crystal
-Cryptocompare::Price.day_avg('BTC', 'USD')
+Cryptocompare::Price.day_avg("BTC", "USD")
 # => {
 #   "USD" => 4109.92,
 #   "ConversionType" => {
@@ -203,21 +203,21 @@ Finds the price of any cryptocurrency in any other currency that you need at a g
 Find historical price of cryptocurrency.
 
 ```crystal
-Cryptocompare::PriceHistorical.find('ETH', 'USD')
+Cryptocompare::PriceHistorical.find("ETH", "USD")
 # => {"ETH"=>{"USD"=>225.93}}
 ```
 
 Find historical price of cryptocurrency at a given timestamp.
 
 ```crystal
-Cryptocompare::PriceHistorical.find('ETH', 'USD', {'ts' => 1452680400})
+Cryptocompare::PriceHistorical.find("ETH", "USD", {"ts" => 1452680400})
 # => {"ETH"=>{"USD"=>223.2}}
 ```
 
 Find historical price of cryptocurrency in many currencies at a given timestamp.
 
 ```crystal
-Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400'})
+Cryptocompare::PriceHistorical.find("ETH", ["BTC", "USD", "EUR"], {"ts" => "1452680400"})
 # => {"ETH"=>{"BTC"=>0.08006, "USD"=>225.93, "EUR"=>194.24}}
 ```
 
@@ -286,7 +286,7 @@ Get data for a currency pair. It returns general block explorer information, agg
 **Example:**
 
 ```crystal
-Cryptocompare::CoinSnapshot.find('BTC', 'USD')
+Cryptocompare::CoinSnapshot.find("BTC", "USD")
 # => {
 #     "Response":"Success",
 #     "Message":"Coin snapshot successfully returned",
@@ -349,7 +349,7 @@ Get top pairs by volume for a currency (always uses aggregated data). The number
 Find top pairs by trading volume for a given currency.
 
 ```crystal
-Cryptocompare::TopPairs.find('ETH')
+Cryptocompare::TopPairs.find("ETH")
 # => {
 #   "Response" => "Success",
 #   "Data" => [
@@ -381,7 +381,7 @@ Get open, high, low, close, volumefrom and volumeto for each minute of historica
 Find historical data by minute for BTC to USD.
 
 ```crystal
-Cryptocompare::HistoMinute.find('BTC', 'USD')
+Cryptocompare::HistoMinute.find("BTC", "USD")
 # => {
 #   "Response" => "Success",
 #   "Type" => 100,
@@ -426,7 +426,7 @@ Get open, high, low, close, volumefrom and volumeto from the each hour historica
 Find historical data by hour for BTC to USD.
 
 ```crystal
-Cryptocompare::HistoHour.find('BTC', 'USD')
+Cryptocompare::HistoHour.find("BTC", "USD")
 # => {
 #   "Response" => "Success",
 #   "Type" => 100,
@@ -471,7 +471,7 @@ Get open, high, low, close, volumefrom and volumeto daily historical data. The v
 Find historical data by day for BTC to USD.
 
 ```crystal
-Cryptocompare::HistoDay.find('BTC', 'USD')
+Cryptocompare::HistoDay.find("BTC", "USD")
 # => {
 #   "Response" => "Success",
 #   "Type" => 100,
@@ -510,7 +510,7 @@ Cryptocompare::HistoDay.find('BTC', 'USD')
 ## Supported Exchanges
 ANXBTC, Binance, Bit2C, BitBay, BitcoinDE, Bitfinex, bitFlyer, bitFlyerFX, Bithumb, BitMarket, Bitso, BitSquare, Bitstamp, Bittrex, Bleutrade, BTC38, BTCChina, BTCE, BTCMarkets, btcXchange, BTCXIndia, BTER, CCEDK, CCEX, Cexio, CHBTC, Coinbase, CoinCheck, CoinExchange, Coinfloor, Coinone, Coinroom, Coinse, Coinsetter, Cryptopia, CryptoX, Cryptsy, EtherDelta, EthexIndia, Exmo, Gatecoin, Gemini, HitBTC, Huobi, itBit, Jubi, Korbit, Kraken, LakeBTC, Liqui, LiveCoin, LocalBitcoins, Luno, Lykke, MercadoBitcoin, MonetaGo, MtGox, Novaexchange, OKCoin, Paymium, Poloniex, QuadrigaCX, Quoine, Remitano, TheRockTrading, Tidex, TuxExchange, Unocoin, Vaultoro, ViaBTC, WavesDEX, Yacuna, Yobit, Yunbi, Zaif
 
-If no exchange option is specified, then the default 'CCCAGG' is used. This is cryptocompare's aggregated data.
+If no exchange option is specified, then the default "CCCAGG" is used. This is cryptocompare's aggregated data.
 
 ## Development
 
